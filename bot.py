@@ -137,5 +137,10 @@ async def clear(ctx):
     conversation.clear()
     await ctx.send("The Void has forgotten the previous conversations.")
 
+@bot.tree.command(name="dashboard", description="Show the Mr. Gamble dashboard")
+async def dashboard(interaction: discord.Interaction):
+    await interaction.response.send_message(
+        "🌐 Mr. Gamble Dashboard\n\nThe web dashboard is coming soon!"
+    )
 
 bot.run(DISCORD_TOKEN)
