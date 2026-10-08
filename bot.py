@@ -2,6 +2,10 @@ import os
 import discord
 from discord.ext import commands
 from google import genai
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 # =========================
 # MR. GAMBLE 00
