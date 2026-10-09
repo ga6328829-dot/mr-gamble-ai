@@ -23,16 +23,19 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 
 
+
 @bot.event
 async def on_ready():
+    print("🔥 ON_READY FUNCTION STARTED")
     print(f"Logged in as {bot.user}")
 
     try:
         synced = await bot.tree.sync()
-        print(f"Synced {len(synced)} slash command(s)")
+        print(f"✅ Synced {len(synced)} slash command(s)")
         print(f"Commands: {[cmd.name for cmd in synced]}")
     except Exception as e:
-        print(f"Slash command sync failed: {e}")
+        print(f"❌ Slash command sync failed: {e}")
+
 
 
 SYSTEM_PROMPT = """
