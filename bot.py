@@ -3,6 +3,8 @@ import discord
 from discord.ext import commands
 from google import genai
 from dotenv import load_dotenv
+from discord import app_commands
+
 
 
 load_dotenv()
