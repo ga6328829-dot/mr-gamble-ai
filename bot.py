@@ -26,17 +26,35 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 
 
+
+# ---------- SLASH COMMAND SYNC ----------
+
 @bot.event
 async def on_ready():
-    print("🔥 ON_READY FUNCTION STARTED")
-    print(f"Logged in as {bot.user}")
+    print(f"⚔️ Mr. Gamble 00 online as {bot.user}")
+    print(f"Bot ID: {bot.user.id}")
 
     try:
         synced = await bot.tree.sync()
         print(f"✅ Synced {len(synced)} slash command(s)")
-        print(f"Commands: {[cmd.name for cmd in synced]}")
-    except Exception as e:
-        print(f"❌ Slash command sync failed: {e}")
+        print(f"Registered commands: {[cmd.name for cmd in synced]}")
+    except Exception as error:
+        print(f"❌ Slash command sync failed: {error}")
+
+
+# ---------- DASHBOARD COMMAND ----------
+
+@bot.tree.command(
+    name="dashboard",
+    description="Show the Mr. Gamble 00 dashboard"
+)
+async def dashboard(interaction: discord.Interaction):
+    await interaction.response.send_message(
+        "⚔️ **Mr. Gamble 00 Dashboard**\n\n"
+        "🌐 The web dashboard is coming soon!",
+        ephemeral=True
+    )
+
 
 
 
